@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Header, CardImage, MovieTile, MoviesList, Title, Wrapper, Informations, MovieTitle, InputWrapper, Image, Input } from './styledMovieList';
+import { Header, CardImage, MovieTile, MoviesList, Title, Wrapper, Informations, MovieTitle, InputWrapper, Image, Input, SearchWrapper } from './styledMovieList';
 import bg from '../../common/Images/moviesListBg.jpg';
 import { useQuery } from '@tanstack/react-query';
 import { Loader } from '../../common/Loader/loader';
@@ -32,7 +32,7 @@ export const MovieList = () => {
         <Wrapper>
             <Header>
                 <Title>Movies List</Title>
-                <div>
+                <SearchWrapper>
 
                     <InputWrapper>
                         <Image src={search} alt="search" />
@@ -53,7 +53,7 @@ export const MovieList = () => {
                             <option value="episode">Episode</option>
                         </select>
                     </label>
-                </div>
+                </SearchWrapper>
             </Header>
 
             {isLoading ? <Loader /> : error ? <Error /> : (

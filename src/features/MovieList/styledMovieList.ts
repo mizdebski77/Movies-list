@@ -11,15 +11,15 @@ export const Header = styled.header`
     background-size: cover;
     background-position: center;
     box-shadow: rgb(0, 0, 0) 0px 60px 120px -15px inset, rgb(0, 0, 0) -100px 0px 120px -10px inset, rgb(0, 0, 0) 100px 0px 120px -10px inset, rgb(0, 0, 0) 0px -180px 180px -10px inset;
-    display: flex;
-    justify-content: center;
-    align-items: end;
+    padding: 80px;
 `;
 
 export const Title = styled.h1`
     font-size: 128px;
     color: ${({ theme }) => theme.color.secondColor};
     font-weight: 300;
+    margin: 0;
+    text-align: center;
 `;
 
 export const MoviesList = styled.div`
@@ -65,6 +65,13 @@ export const MovieTitle = styled.h2`
     };
 `;
 
+export const SearchWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+`;
+
 export const Informations = styled.div`
     display: grid;
     gap: 16px;
@@ -82,6 +89,8 @@ export const InputWrapper = styled.section`
     display: grid;
     grid-template-columns: auto 1fr;
     border-radius: 20px;
+    max-width: 800px;
+    width: 100%;
 
     @media (max-width:${({ theme }) => theme.breakPoint.firstBreakPoint}px){
         width: 100%;

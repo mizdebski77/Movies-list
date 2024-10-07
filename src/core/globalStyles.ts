@@ -12,9 +12,10 @@ html {
     box-sizing: inherit;
   }
   
-body {
-  word-break: break-word;
-  background: ${({ theme }) => theme.color.mainColor};
-  font-family: 'Playfair Display', serif;
-  margin: 0;
-}`;
+  body {
+    font-family: "Poppins", sans-serif;
+    word-break: break-word;
+    text-decoration: none;
+    background: ${({ theme }) => theme.color.mainColor};
+    color: ${({ theme }) => theme.color.fontPrimary};
+  }`;

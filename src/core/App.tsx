@@ -1,9 +1,8 @@
+import { MovieList } from "../features/MovieList/movieList";
 
 function App() {
   return (
-
-    null
-
+    <MovieList />
   );
 }
 

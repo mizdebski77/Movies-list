@@ -1,9 +1,9 @@
 export const theme = {
     color: {
-        mainColor: "#00000;",
-        fontColor: '#ffffff',
-        secondColor: "rgb(29, 105, 24)",
-        hoverSecondColor: 'rgba(15,119,1, 0.9)',
+        mainColor: "rgb(220 220 223)",
+        fontColor: '#00000',
+        secondColor: "#ffffff",
+        hoverSecondColor: 'rgba(15,119,1, 1)',
         thirdColor: '#868686',
     },
 

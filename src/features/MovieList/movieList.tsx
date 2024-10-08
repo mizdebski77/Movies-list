@@ -15,7 +15,7 @@ interface Movie {
 };
 
 export const MovieList = () => {
-    const [searchTerm, setSearchTerm] = useState('Guardians');
+    const [searchTerm, setSearchTerm] = useState('');
     const [type, setType] = useState('movie');
 
     const { data, isLoading, error, refetch } = useQuery({
@@ -30,6 +30,9 @@ export const MovieList = () => {
         }
     }, [searchTerm, type, refetch]);
 
+
+    console.log(data);
+    
 
 
     return (

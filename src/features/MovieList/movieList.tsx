@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Header, CardImage, MovieTile, MoviesList, Title, Wrapper, Informations, MovieTitle, InputWrapper, Image, Input, SearchWrapper } from './styledMovieList';
+import { Header, CardImage, MovieTile, MoviesList, Title, Wrapper, Informations, MovieTitle, InputWrapper, Image, Input, SearchWrapper, Select } from './styledMovieList';
 import bg from '../../common/Images/moviesListBg.jpg';
 import { useQuery } from '@tanstack/react-query';
 import { Loader } from '../../common/Loader/loader';
@@ -12,7 +12,7 @@ interface Movie {
 };
 
 export const MovieList = () => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState('Guardians');
     const [type, setType] = useState('movie');
 
     const { data, isLoading, error, refetch } = useQuery({
@@ -46,12 +46,11 @@ export const MovieList = () => {
                     </InputWrapper>
 
                     <label>
-                        Type:
-                        <select value={type} onChange={(e) => setType(e.target.value)}>
+                        <Select value={type} onChange={(e) => setType(e.target.value)}>
                             <option value="movie">Film</option>
                             <option value="series">Serial</option>
                             <option value="episode">Episode</option>
-                        </select>
+                        </Select>
                     </label>
                 </SearchWrapper>
             </Header>

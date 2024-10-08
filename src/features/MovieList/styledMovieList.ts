@@ -27,6 +27,8 @@ export const MoviesList = styled.div`
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
     padding: 20px;
+    max-width: 1500px;
+    margin: 0 auto;
 `;
 
 export const MovieTile = styled.div`
@@ -109,4 +111,14 @@ export const Input = styled.input`
 export const Image = styled.img`
     margin: 12px;
 `;
+
+export const Select = styled.select`
+    border-radius: 20px;
+    padding: 10px 20px;
+    background: ${({ theme }) => theme.color.mainColor};
+    color: ${({ theme }) => theme.color.inputColor};
+    outline: none;
+    cursor: pointer;
+`;
+
 

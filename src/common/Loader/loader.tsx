@@ -7,10 +7,7 @@ export const Loader = () => {
         <Wrapper>
             <Spinner src={spinner} />
             <Title>
-                Data download ...
-                <p>
-                    Data is downloaded from "database.onrender.com", which may take a while
-                </p>
+                Data downloading ...
             </Title>
         </Wrapper>
     );

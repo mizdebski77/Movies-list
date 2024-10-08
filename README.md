@@ -8,7 +8,7 @@
 1. Getting started
 
 ## DEMO
-[Application Demo](https://mizdebski77.github.io/Movies-List)
+[Application Demo](https://mizdebski77.github.io/Movies-list/)
 
 ## Description
 The Movies List is a platform you can easily search for your favorite movie.

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Header, CardImage, MovieTile, MoviesList, Title, Wrapper, Informations, MovieTitle, InputWrapper, Image, Input, SearchWrapper, Select } from './styledMovieList';
+import { Wrapper, Header, Title, Table, TableHeader, TableRow, TableCell, SearchWrapper, InputWrapper, Image, Input, Select, TableWrapper } from './styledMovieList';
 import bg from '../../common/Images/moviesListBg.jpg';
 import { useQuery } from '@tanstack/react-query';
 import { Loader } from '../../common/Loader/loader';
@@ -8,6 +8,9 @@ import search from '../../common/Images/search.svg';
 
 interface Movie {
     Title: string,
+    Year: string,
+    Country: string,
+    Type: string,
     Poster: string,
 };
 
@@ -28,12 +31,12 @@ export const MovieList = () => {
     }, [searchTerm, type, refetch]);
 
 
+
     return (
         <Wrapper>
             <Header>
                 <Title>Movies List</Title>
                 <SearchWrapper>
-
                     <InputWrapper>
                         <Image src={search} alt="search" />
                         <Input
@@ -41,32 +44,53 @@ export const MovieList = () => {
                             onChange={(e) => setSearchTerm(e.target.value)}
                             type="text"
                             placeholder="Enter movie title"
-
                         />
                     </InputWrapper>
 
                     <label>
                         <Select value={type} onChange={(e) => setType(e.target.value)}>
-                            <option value="movie">Film</option>
-                            <option value="series">Serial</option>
+                            <option value="movie">Movie</option>
+                            <option value="series">Series</option>
                             <option value="episode">Episode</option>
                         </Select>
                     </label>
                 </SearchWrapper>
             </Header>
 
-            {isLoading ? <Loader /> : error ? <Error /> : (
-                <MoviesList>
-                    {data?.Search?.map((movie: Movie) => (
-                        <MovieTile key={movie.Title}>
-                            <CardImage src={movie.Poster !== "N/A" ? movie.Poster : bg} />
-                            <Informations>
-                                <MovieTitle>{movie.Title}</MovieTitle>
-                            </Informations>
-                        </MovieTile>
-                    ))}
-                </MoviesList>
-            )}
+            <TableWrapper>
+                {isLoading ? <Loader /> : error ? <Error /> : (
+                    <Table>
+                        <thead>
+                            <TableRow>
+                                <TableHeader>Poster</TableHeader>
+                                <TableHeader>Title</TableHeader>
+                                <TableHeader>Year</TableHeader>
+                                <TableHeader>Country</TableHeader>
+                                <TableHeader>Type</TableHeader>
+                            </TableRow>
+                        </thead>
+                        <tbody>
+                            {data?.Search?.map((movie: Movie) => (
+                                <TableRow key={movie.Title}>
+                                    <TableCell>
+                                        <img
+                                            src={movie.Poster !== "N/A" ? movie.Poster : bg}
+                                            alt={movie.Title}
+                                            style={{ width: '80px', height: '120px', borderRadius: '8px' }}
+                                        />
+                                    </TableCell>
+                                    <TableCell>{movie.Title}</TableCell>
+                                    <TableCell>{movie.Year}</TableCell>
+                                    <TableCell>{movie.Country || 'Unknown'}</TableCell>
+                                    <TableCell>{movie.Type}</TableCell>
+                                </TableRow>
+                            ))}
+                        </tbody>
+                    </Table>
+                )}
+            </TableWrapper>
+
+
         </Wrapper>
     );
 };

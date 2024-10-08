@@ -2,7 +2,7 @@ import styled from "styled-components";
 import bg from '../../common/Images/moviesListBg.jpg';
 
 export const Wrapper = styled.main`
-
+    padding: 20px;
 `;
 
 export const Header = styled.header`
@@ -12,6 +12,11 @@ export const Header = styled.header`
     background-position: center;
     box-shadow: rgb(0, 0, 0) 0px 60px 120px -15px inset, rgb(0, 0, 0) -100px 0px 120px -10px inset, rgb(0, 0, 0) 100px 0px 120px -10px inset, rgb(0, 0, 0) 0px -180px 180px -10px inset;
     padding: 80px;
+
+    @media (max-width: ${({ theme }) => theme.breakPoint.mobileMax}px) {
+        padding: 40px 20px;
+        min-height: auto;
+    };
 `;
 
 export const Title = styled.h1`
@@ -20,51 +25,85 @@ export const Title = styled.h1`
     font-weight: 300;
     margin: 0;
     text-align: center;
-`;
 
-export const MoviesList = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    padding: 20px;
-    max-width: 1500px;
-    margin: 0 auto;
-`;
-
-export const MovieTile = styled.div`
-    text-decoration: none;
-    background: ${({ theme }) => theme.color.secondColor};
-    display: grid;
-    padding: 16px;
-    border-radius: 10px;
-    transition: 0.5s;
-    cursor: pointer;
-    box-shadow: rgba(186, 199, 213, 0.5) 0px 0px 12px;
-`;
-
-export const CardImage = styled.img`
-    width: 100%;
-    max-height: 443px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-
-    @media (max-width:${({ theme }) => theme.breakPoint.smallPhone}px) {
-        max-width: 132px;
-        height: 180px;
-        margin-bottom: 0;
+    @media (max-width: ${({ theme }) => theme.breakPoint.mobileMax}px) {
+        font-size: 64px;
+        margin-bottom: 20px;
     };
 `;
 
-export const MovieTitle = styled.h2`
+export const TableWrapper = styled.div`
+    width: 100%;
+    overflow-x: auto; 
+    margin-top: 40px;
+
+    @media (max-width: ${({ theme }) => theme.breakPoint.mobileMax}px) {
+        margin-top: 20px;
+    }
+`;
+
+export const Table = styled.table`
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse; 
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+    border: 1px solid #333;
+
+    @media (max-width: ${({ theme }) => theme.breakPoint.mobileMax}px) {
+        font-size: 12px; 
+    }
+`;
+
+export const TableRow = styled.tr`
+
+    &:hover {   
+        background: #e5e5e5;
+    }
+
+    background: ${({ theme }) => theme.color.secondColor};
+    &:nth-child(even) {
+        background-color: ${({ theme }) => theme.color.tableRowEven};
+    }
+
+    &:hover {
+        background-color: ${({ theme }) => theme.color.tableRowHover};
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakPoint.mobileMax}px) {
+        &:nth-child(even) {
+            background-color: ${({ theme }) => theme.color.tableRowHover}; 
+        }
+    }
+`;
+
+export const TableHeader = styled.th`
+    padding: 16px 12px;
+    background-color: ${({ theme }) => theme.color.fontColor}; 
+    color: white;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #333;
+
+    @media (max-width: ${({ theme }) => theme.breakPoint.mobileMax}px) {
+        padding: 10px 8px; 
+    }
+`;
+
+export const TableCell = styled.td`
+    border: 1px solid #333; 
+    font-size: 20px;
     color: ${({ theme }) => theme.color.fontPrimary};
     text-align: center;
-    font-size: 20px;
-    margin: 0;
-    font-weight: normal;
+    word-break: keep-all;
+    transition: 0.3s;
 
-    @media (max-width:${({ theme }) => theme.breakPoint.smallPhone}px) {
-        font-size: 16px;
-    };
+    @media (max-width: ${({ theme }) => theme.breakPoint.mobileMax}px) {
+        padding: 8px 6px; 
+    }
 `;
 
 export const SearchWrapper = styled.div`
@@ -72,21 +111,10 @@ export const SearchWrapper = styled.div`
     justify-content: center;
     gap: 20px;
     align-items: center;
-`;
-
-export const Informations = styled.div`
-    display: grid;
-    gap: 16px;
-    align-items: center;
-
-    @media (max-width:${({ theme }) => theme.breakPoint.smallPhone}px) {
-        gap: 12px;
-        width: 100%;
-    };
+    margin-top: 20px;
 `;
 
 export const InputWrapper = styled.section`
-    width: 400px;
     background: ${({ theme }) => theme.color.mainColor};
     display: grid;
     grid-template-columns: auto 1fr;
@@ -121,4 +149,9 @@ export const Select = styled.select`
     cursor: pointer;
 `;
 
-
+// Dodaj media queries dla ukrycia mniej ważnych kolumn na małych ekranach
+export const TableCellHideOnMobile = styled(TableCell)`
+    @media (max-width: ${({ theme }) => theme.breakPoint.mobileMax}px) {
+        display: none;
+    }
+`;

@@ -20,7 +20,7 @@ export const MovieList = () => {
 
     const { data, isLoading, error, refetch } = useQuery({
         queryKey: ['movie', searchTerm, type],
-        queryFn: () => fetch(`http://www.omdbapi.com/?s=${searchTerm}&type=${type}&apikey=2d646814`)
+        queryFn: () => fetch(`https://www.omdbapi.com/?s=${searchTerm}&type=${type}&apikey=2d646814`)
             .then((response: Response) => response.json()),
     });
 
@@ -30,9 +30,6 @@ export const MovieList = () => {
         }
     }, [searchTerm, type, refetch]);
 
-
-    console.log(data);
-    
 
 
     return (

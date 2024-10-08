@@ -2,7 +2,7 @@
   "name": "movies",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mizdebski77.github.io/Movies-List",
+  "homepage": "https://mizdebski77.github.io/Movies-list/",
   "dependencies": {
     "@tanstack/react-query": "^5.59.0",
     "@testing-library/jest-dom": "^5.17.0",

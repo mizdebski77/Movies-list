@@ -27,7 +27,7 @@ export const Title = styled.h1`
     text-align: center;
 
     @media (max-width: ${({ theme }) => theme.breakPoint.mobileMax}px) {
-        font-size: 64px;
+        font-size: 52px;
         margin-bottom: 20px;
     };
 `;
@@ -112,6 +112,11 @@ export const SearchWrapper = styled.div`
     gap: 20px;
     align-items: center;
     margin-top: 20px;
+
+    @media (max-width:${({ theme }) => theme.breakPoint.mobileMax}px){
+        flex-direction: column;
+    }
+
 `;
 
 export const InputWrapper = styled.section`
@@ -122,7 +127,7 @@ export const InputWrapper = styled.section`
     max-width: 800px;
     width: 100%;
 
-    @media (max-width:${({ theme }) => theme.breakPoint.firstBreakPoint}px){
+    @media (max-width:${({ theme }) => theme.breakPoint.mobileMax}px){
         width: 100%;
     }
 `;
@@ -149,7 +154,6 @@ export const Select = styled.select`
     cursor: pointer;
 `;
 
-// Dodaj media queries dla ukrycia mniej ważnych kolumn na małych ekranach
 export const TableCellHideOnMobile = styled(TableCell)`
     @media (max-width: ${({ theme }) => theme.breakPoint.mobileMax}px) {
         display: none;
